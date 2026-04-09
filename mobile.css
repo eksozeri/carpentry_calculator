@@ -1,0 +1,432 @@
+/* MOBILE-ONLY STYLES - @media (max-width: 1024px) */
+@media (max-width: 1024px) {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 100%);
+        min-height: 100vh;
+        padding: 20px;
+        color: #fff;
+        overflow-x: hidden;
+    }
+
+    /* Hide desktop background pattern on mobile */
+    .bg-pattern {
+        display: none !important;
+    }
+
+    /* MOBILE: Single column stacked layout - ✅ EXTRA SPACE AFTER CALC */
+    .page-wrapper {
+        flex-direction: column !important;
+        max-width: 100% !important;
+        padding: 20px 15px 40px 15px !important;
+        gap: 30px !important;
+        align-items: center !important;
+        min-height: 100vh !important;
+    }
+
+    /* MOBILE: Container becomes full-width calculator */
+    .container {
+        flex: none !important;
+        max-width: 380px !important;
+        width: 100% !important;
+        min-height: 580px !important;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        background: rgba(255, 255, 255, 0.02) !important;
+        border-radius: 24px !important;
+        padding: 16px 12px 31px 12px !important;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0 !important;
+        margin-bottom: 20px !important;
+    }
+
+    .container.scientific-mode {
+        max-width: 540px !important;
+        min-height: 637px !important;
+    }
+
+    /* MOBILE: Hide hero section, show only calculator */
+    .center-content {
+        display: none !important;
+    }
+
+    /* MOBILE CALCULATOR STYLES */
+    .calculator {
+        background: linear-gradient(145deg, #2a2a2a, #1f1f1f) !important;
+        border-radius: 20px !important;
+        padding: 20px !important;
+        flex: 1 !important;
+        box-shadow: 
+            0 15px 35px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid rgba(255, 165, 0, 0.15) !important;
+        backdrop-filter: blur(16px) !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-bottom: 16px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .header h1 {
+        margin: 10px;
+        font-family: 'Orbitron', monospace !important;
+        font-size: 18px !important;
+        font-weight: 800 !important;
+        background: linear-gradient(45deg, #ff9500, #ffb347) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+        letter-spacing: 1px !important;
+    }
+
+    .mode-toggle {
+        display: flex !important;
+        gap: 3px !important;
+    }
+
+    /* ✨ DIMMED & TRANSLUCENT MODE BUTTONS */
+    .mode-btn {
+        padding: 4px 8px !important;
+        border-radius: 8px !important;
+        font-size: 9px !important;
+        font-weight: 600 !important;
+        font-family: 'Inter', sans-serif !important;
+        cursor: pointer !important;
+        transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                    padding 0.3s ease, font-size 0.3s ease !important;
+        /* ✅ DIMMED & MORE TRANSLUCENT */
+        background: rgba(255, 255, 255, 0.05) !important; /* Was 0.08 → 0.05 */
+        border: 1px solid rgba(255, 255, 255, 0.08) !important; /* Was 0.15 → 0.08 */
+        color: rgba(255, 255, 255, 0.85) !important; /* Slightly dimmed text */
+        min-height: 20px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: relative !important;
+        overflow: hidden !important;
+        letter-spacing: 0.3px !important;
+        backdrop-filter: blur(10px) !important; /* ✅ Added translucency */
+    }
+
+    /* ✅ SMALLER SIZE IN BASIC MODE */
+    .basic-mode .mode-btn {
+        padding: 3px 6px !important;
+        font-size: 8px !important;
+        min-height: 18px !important;
+        border-radius: 7px !important;
+        letter-spacing: 0.2px !important;
+        background: rgba(255, 255, 255, 0.04) !important; /* Even more translucent */
+    }
+
+    /* ✅ DIMMED HOVER - Less aggressive glow */
+    .mode-btn:hover {
+        transform: translateY(-1px) !important; /* Reduced lift */
+        background: rgba(255, 255, 255, 0.12) !important; /* Was 0.18 → 0.12 */
+        border-color: rgba(255, 149, 0, 0.25) !important; /* Softer border */
+        box-shadow: 
+            0 4px 12px rgba(255, 149, 0, 0.2), /* Reduced intensity */
+            0 1px 0 rgba(255, 255, 255, 0.05) !important;
+        color: #fff !important; /* Full white on hover */
+    }
+
+    /* ✅ DIMMED PULSE EFFECT */
+    .mode-btn::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        width: 0 !important;
+        height: 0 !important;
+        background: radial-gradient(circle, rgba(255, 149, 0, 0.25) 0%, transparent 70%) !important; /* Reduced opacity */
+        border-radius: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+        z-index: 0 !important;
+    }
+
+    .mode-btn:hover::before {
+        width: 250% !important; /* Slightly smaller pulse */
+        height: 250% !important;
+    }
+
+    .mode-btn.active {
+        /* ✅ SUBTLE ACTIVE STATE */
+        background: linear-gradient(135deg, rgba(255, 149, 0, 0.9), rgba(255, 179, 71, 0.9)) !important;
+        box-shadow: 
+            0 0 0 0 rgba(255, 149, 0, 0.4), /* Reduced pulse */
+            0 4px 12px rgba(255, 149, 0, 0.3) !important; /* Softer shadow */
+        color: #1a1a1a !important;
+        transform: scale(1.04) !important; /* Less scale */
+        animation: activePulse 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    }
+
+    .mode-btn.active::before {
+        width: 150% !important;
+        height: 150% !important;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%) !important; /* Softer */
+    }
+
+    /* ✅ DIMMED ACTIVE HOVER */
+    .mode-btn.active:hover {
+        transform: scale(1.08) translateY(-1.5px) !important;
+        box-shadow: 
+            0 0 0 0 rgba(255, 149, 0, 0.5),
+            0 6px 20px rgba(255, 149, 0, 0.4) !important; /* Reduced glow */
+    }
+
+    /* ✨ DIMMED PULSE ANIMATION */
+    @keyframes activePulse {
+        0% {
+            box-shadow: 
+                0 0 0 0 rgba(255, 149, 0, 0.4),
+                0 4px 12px rgba(255, 149, 0, 0.3) !important;
+        }
+        40% {
+            box-shadow: 
+                0 0 0 10px rgba(255, 149, 0, 0),
+                0 8px 20px rgba(255, 149, 0, 0.25) !important;
+        }
+        70% {
+            box-shadow: 
+                0 0 0 15px rgba(255, 149, 0, 0),
+                0 6px 15px rgba(255, 149, 0, 0.2) !important;
+        }
+        100% {
+            box-shadow: 
+                0 0 0 0 rgba(255, 149, 0, 0),
+                0 4px 12px rgba(255, 149, 0, 0.3) !important;
+        }
+    }
+
+    /* ... REST OF THE CODE REMAINS EXACTLY THE SAME ... */
+
+    .display {
+        margin-bottom: 16px !important;
+        text-align: right !important;
+        min-height: 80px !important;
+        flex-shrink: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-end !important;
+        padding: 20px 12px !important;
+        background: rgba(0, 0, 0, 0.3) !important;
+        border-radius: 16px !important;
+        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    }
+
+    .memory {
+        font-size: 11px !important;
+        color: #ff9500 !important;
+        margin-bottom: 4px !important;
+        opacity: 0.9 !important;
+    }
+
+    .previous-operand {
+        font-size: 13px !important;
+        color: rgba(255, 255, 255, 0.6) !important;
+        margin-bottom: 4px !important;
+        font-weight: 400 !important;
+    }
+
+    .current-operand {
+        font-family: 'Orbitron', monospace !important;
+        font-size: 32px !important;
+        font-weight: 700 !important;
+        line-height: 1.1 !important;
+        word-break: break-all !important;
+        color: #fff !important;
+    }
+
+    .buttons {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        margin-bottom: 8px !important;
+    }
+
+    /* MOBILE BUTTONS */
+    .btn {
+        height: 36px !important;
+        border: none !important;
+        border-radius: 10px !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        cursor: pointer !important;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        position: relative !important;
+        overflow: hidden !important;
+        letter-spacing: 0.2px !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .btn::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: -100% !important;
+        width: 100% !important;
+        height: 100% !important;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent) !important;
+        transition: left 0.5s !important;
+    }
+
+    .btn:hover::before {
+        left: 100% !important;
+    }
+
+    .btn:active {
+        transform: scale(0.96) translateY(1px) !important;
+    }
+
+    .btn:hover {
+        transform: translateY(-0.5px) !important;
+    }
+
+    /* BASIC MODE */
+    .basic-mode {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        grid-template-rows: repeat(5, 1fr) !important;
+        gap: 8px !important;
+        height: 216px !important;
+    }
+
+    .basic-mode:not(.active) {
+        display: none !important;
+    }
+
+    /* SCIENTIFIC MODE */
+    .scientific-mode {
+        display: none !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        height: 100% !important;
+    }
+
+    .scientific-mode.active {
+        display: flex !important;
+    }
+
+    .scientific-functions {
+        display: grid !important;
+        grid-template-columns: repeat(6, 1fr) !important;
+        grid-template-rows: repeat(2, 1fr) !important;
+        gap: 6px !important;
+        height: 90px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .scientific-basic {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        grid-template-rows: repeat(5, 1fr) !important;
+        gap: 8px !important;
+        height: 216px !important;
+        flex: 1 !important;
+    }
+
+    /* BUTTON COLORS */
+    .number {
+        background: linear-gradient(145deg, #333, #2a2a2a) !important;
+        color: #e0e0e0 !important;
+    }
+
+    .number:hover {
+        background: linear-gradient(145deg, #3d3d3d, #333) !important;
+    }
+
+    .operator {
+        background: linear-gradient(145deg, #ff9500, #ffb347) !important;
+        color: #1a1a1a !important;
+        font-weight: 600 !important;
+    }
+
+    .operator:hover {
+        background: linear-gradient(145deg, #ffb347, #ff9500) !important;
+    }
+
+    .equals {
+        background: linear-gradient(145deg, #ff6b35, #ff8c42) !important;
+        color: #fff !important;
+        font-weight: 700 !important;
+    }
+
+    .equals:hover {
+        background: linear-gradient(145deg, #ff8c42, #ff6b35) !important;
+    }
+
+    .function, .memory-btn {
+        background: linear-gradient(145deg, #3a3a3a, #303030) !important;
+        color: #ff9500 !important;
+        font-size: 12px !important;
+    }
+
+    .function:hover, .memory-btn:hover {
+        background: linear-gradient(145deg, #444, #3a3a3a) !important;
+        color: #ffb347 !important;
+    }
+
+    .clear, .backspace {
+        background: linear-gradient(145deg, #d32f2f, #b71c1c) !important;
+        color: #fff !important;
+        font-weight: 600 !important;
+    }
+
+    .clear:hover, .backspace:hover {
+        background: linear-gradient(145deg, #f44336, #d32f2f) !important;
+    }
+
+    .span-two {
+        grid-column: span 2 !important;
+    }
+
+    .footer {
+        text-align: center !important;
+        margin-top: auto !important;
+        padding-top: 12px !important;
+        color: rgba(255, 255, 255, 0.5) !important;
+        font-size: 10px !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .btn:focus {
+        outline: 2px solid #ff9500 !important;
+        outline-offset: 2px !important;
+    }
+
+    /* Extra small screens */
+    @media (max-width: 480px) {
+        .container {
+            max-width: 350px !important;
+            min-height: 490px !important;
+            padding: 12px 10px 20px 10px !important;
+            margin-bottom: 16px !important;
+        }
+        
+        .page-wrapper {
+            padding: 20px 15px 50px 15px !important;
+        }
+        
+        .current-operand {
+            font-size: 28px !important;
+        }
+    }
+}

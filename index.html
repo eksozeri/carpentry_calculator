@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    
+    <!-- Background Pattern -->
+    <div class="bg-pattern"></div>
+    
+    <!-- Main Wrapper -->
+    <!-- Center Content -->
+<div class="center-content">
+    <!-- Hero Section Above Calculator -->
+    <div class="hero-section">
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-gradient">Precision</span>
+                <span class="title-gradient">Calculator</span>
+            </h1>
+            <p class="hero-subtitle">Advanced calculations at your fingertips. Scientific & Basic modes included.</p>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">99.9%</span>
+                    <span class="stat-label">Accuracy</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">0ms</span>
+                    <span class="stat-label">Latency</span>
+                </div>
+            </div>
+            <button class="info-btn">Info</button>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div class="info-modal" id="infoModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2> Project Information</h2>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3> Built With</h3>
+                        <ul>
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3> Features</h3>
+                        <ul>
+                            <li>Fully Responsive Design</li>
+                            <li>Scientific & Basic Modes</li>
+                            <li>99.9% Calculation Accuracy</li>
+                            <li>Instant Results (0ms Latency)</li>
+                            <li>Modern UI/UX</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info-footer">
+                    <p><strong>Precision Calculator</strong> - Your ultimate calculation companion!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- Your Existing Calculator Container -->
+             <div class="container">
+        <div class="calculator">
+            
+            <div class="header">
+                <h1>CALC</h1>
+                <div class="mode-toggle">
+                    <span class="mode-btn active" data-mode="basic">BASIC</span>
+                    <span class="mode-btn" data-mode="scientific">SCIENTIFIC</span>
+                </div>
+            </div>
+            
+            <div class="display">
+                <div class="memory" id="memoryDisplay">M</div>
+                <div class="previous-operand" id="previousOperand"></div>
+                <div class="current-operand" id="currentOperand">0</div>
+            </div>
+            
+            <div class="buttons">
+    <!-- BASIC MODE -->
+    <div class="basic-mode active">
+        <button class="btn memory-btn mc" data-action="mc">MC</button>
+        <button class="btn memory-btn mr" data-action="mr">MR</button>
+        <button class="btn memory-btn m+" data-action="m+">M+</button>
+        <button class="btn memory-btn m-" data-action="m-">M-</button>
+        <button class="btn clear" data-action="clear">AC</button>
+        <button class="btn clear" data-action="clear-entry">CE</button>
+        <button class="btn backspace" data-action="delete">⌫</button>
+        <button class="btn operator" data-value="÷">÷</button>
+        
+        <button class="btn number" data-value="7">7</button>
+        <button class="btn number" data-value="8">8</button>
+        <button class="btn number" data-value="9">9</button>
+        <button class="btn operator" data-value="×">×</button>
+        
+        <button class="btn number" data-value="4">4</button>
+        <button class="btn number" data-value="5">5</button>
+        <button class="btn number" data-value="6">6</button>
+        <button class="btn operator" data-value="-">-</button>
+        
+        <button class="btn number" data-value="1">1</button>
+        <button class="btn number" data-value="2">2</button>
+        <button class="btn number" data-value="3">3</button>
+        <button class="btn operator" data-value="+">+</button>
+        
+        <button class="btn number span-two" data-value="0">0</button>
+        <button class="btn number" data-value=".">.</button>
+        <button class="btn equals" data-action="equals">=</button>
+    </div>
+
+    <!-- SCIENTIFIC MODE -->
+    <div class="scientific-mode">
+        <!-- TOP: Scientific Functions -->
+        <div class="scientific-functions">
+            <button class="btn function" data-action="sin">sin</button>
+            <button class="btn function" data-action="cos">cos</button>
+            <button class="btn function" data-action="tan">tan</button>
+            <button class="btn function" data-action="log">log</button>
+            <button class="btn function" data-action="ln">ln</button>
+            <button class="btn function" data-action="sqrt">√</button>
+            
+            <button class="btn function" data-action="sin-inverse">sin⁻¹</button>
+            <button class="btn function" data-action="cos-inverse">cos⁻¹</button>
+            <button class="btn function" data-action="tan-inverse">tan⁻¹</button>
+            <button class="btn operator" data-value="%">%</button>
+            <button class="btn operator" data-value="(">(</button>
+            <button class="btn operator" data-value=")">)</button>
+        </div>
+        
+        <!-- BOTTOM: Basic Buttons (smaller) -->
+        <div class="scientific-basic">
+            <button class="btn memory-btn mc" data-action="mc">MC</button>
+            <button class="btn memory-btn mr" data-action="mr">MR</button>
+            <button class="btn memory-btn m+" data-action="m+">M+</button>
+            <button class="btn memory-btn m-" data-action="m-">M-</button>
+            <button class="btn clear" data-action="clear">AC</button>
+            <button class="btn clear" data-action="clear-entry">CE</button>
+            <button class="btn backspace" data-action="delete">⌫</button>
+            <button class="btn operator" data-value="÷">÷</button>
+            
+            <button class="btn number" data-value="7">7</button>
+            <button class="btn number" data-value="8">8</button>
+            <button class="btn number" data-value="9">9</button>
+            <button class="btn operator" data-value="×">×</button>
+            
+            <button class="btn number" data-value="4">4</button>
+            <button class="btn number" data-value="5">5</button>
+            <button class="btn number" data-value="6">6</button>
+            <button class="btn operator" data-value="-">-</button>
+            
+            <button class="btn number" data-value="1">1</button>
+            <button class="btn number" data-value="2">2</button>
+            <button class="btn number" data-value="3">3</button>
+            <button class="btn operator" data-value="+">+</button>
+            
+            <button class="btn number span-two" data-value="0">0</button>
+            <button class="btn number" data-value=".">.</button>
+            <button class="btn equals" data-action="equals">=</button>
+        </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+       
+
+    <!-- Floating Particles -->
+    <div class="particles">
+        <div class="particle p1"></div>
+        <div class="particle p2"></div>
+        <div class="particle p3"></div>
+        <div class="particle p4"></div>
+    </div>
+
+
+   
+    <script src="script.js"></script>
+</body>
+</html>
